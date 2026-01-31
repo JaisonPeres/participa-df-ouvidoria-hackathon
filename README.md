@@ -37,7 +37,7 @@ This will automatically:
 - ✅ Install pnpm if needed
 - ✅ Install all dependencies
 - ✅ Create .env files from examples
-- ✅ Start Docker services (PostgreSQL + PgAdmin)
+- ✅ Start Docker services (PostgreSQL)
 - ✅ Wait for database to be ready
 - ✅ Start development servers (frontend + backend)
 
@@ -191,20 +191,10 @@ The project includes the following Docker services:
 - **Password:** postgres
 - **Database:** participa_df
 
-### PgAdmin
-- **Port:** 5050
-- **Email:** admin@participa-df.local
-- **Password:** admin
-- **URL:** http://localhost:5050
-
-To connect PgAdmin to PostgreSQL:
-1. Open http://localhost:5050
-2. Login with the credentials above
-3. Add new server:
-   - Host: postgres
-   - Port: 5432
-   - Username: postgres
-   - Password: postgres
+You can connect to PostgreSQL using any database client (e.g., DBeaver, pgcli, psql):
+```bash
+psql -h localhost -p 5432 -U postgres -d participa_df
+```
 
 ## 📚 Documentation
 

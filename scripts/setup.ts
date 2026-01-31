@@ -108,14 +108,6 @@ async function main(): Promise<void> {
     await new Promise(resolve => setTimeout(resolve, 5000));
     log('✓ PostgreSQL should be ready', 'green');
   }
-
-  // Success message
-  log('\n✅ Setup complete!\n', 'green');
-  log('📝 Services:', 'blue');
-  log(`  • Frontend:     ${colors.green}http://localhost:3000${colors.reset}`);
-  log(`  • Backend API:  ${colors.green}http://localhost:3001${colors.reset}`);
-  log(`  • API Docs:     ${colors.green}http://localhost:3001/docs${colors.reset}`);
-  log(`  • PgAdmin:      ${colors.green}http://localhost:5050${colors.reset}`);
   
   log('\n🚀 Starting development servers...\n', 'blue');
   
