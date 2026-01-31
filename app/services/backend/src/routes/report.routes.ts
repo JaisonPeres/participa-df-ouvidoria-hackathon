@@ -6,8 +6,6 @@ import {
   reportIdSchema,
   reportCodeSchema,
   listReportsQuerySchema,
-  addFileToReportSchema,
-  removeFileFromReportSchema,
 } from '../schemas';
 import { zodToJsonSchema } from 'zod-to-json-schema';
 
@@ -103,9 +101,11 @@ export async function reportRoutes(fastify: FastifyInstance) {
   fastify.get(
     '/reports',
     {
+      onRequest: [fastify.authenticate],
       schema: {
-        description: 'List reports with pagination',
+        description: 'List reports with pagination (requires authentication)',
         tags: ['reports'],
+        security: [{ bearerAuth: [] }],
         querystring: zodToJsonSchema(listReportsQuerySchema),
         response: {
           200: {
@@ -122,6 +122,13 @@ export async function reportRoutes(fastify: FastifyInstance) {
                   totalPages: { type: 'number' },
                 },
               },
+            },
+          },
+          401: {
+            description: 'Unauthorized',
+            type: 'object',
+            properties: {
+              error: { type: 'string' },
             },
           },
         },
