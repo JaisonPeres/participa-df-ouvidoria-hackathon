@@ -1,4 +1,7 @@
 import { FastifyInstance } from 'fastify';
+import { reportRoutes } from './report.routes';
+import { fileRoutes } from './file.routes';
+import { authRoutes } from './auth.routes';
 
 export async function healthRoutes(fastify: FastifyInstance) {
   // Health check route
@@ -29,27 +32,13 @@ export async function healthRoutes(fastify: FastifyInstance) {
       return reply.code(200).send(response);
     }
   );
-
-  // Example route
-  fastify.get(
-    '/api/hello',
-    {
-      schema: {
-        description: 'Example hello endpoint',
-        tags: ['example'],
-        response: {
-          200: {
-            description: 'Successful response',
-            type: 'object',
-            properties: {
-              message: { type: 'string' },
-            },
-          },
-        },
-      },
-    },
-    async (_request, reply) => {
-      return reply.code(200).send({ message: 'Hello from Participa DF API!' });
-    }
-  );
 }
+
+// Register all routes
+export async function registerRoutes(fastify: FastifyInstance) {
+  await healthRoutes(fastify);
+  await fastify.register(authRoutes, { prefix: '/api' });
+  await fastify.register(reportRoutes, { prefix: '/api' });
+  await fastify.register(fileRoutes, { prefix: '/api' });
+}
+
