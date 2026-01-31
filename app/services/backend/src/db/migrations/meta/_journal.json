@@ -1,0 +1,27 @@
+{
+  "version": "5",
+  "dialect": "pg",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1769825074115,
+      "tag": "0000_careless_mad_thinker",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1769825686775,
+      "tag": "0001_hesitant_eternals",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1769826568316,
+      "tag": "0002_jazzy_jean_grey",
+      "breakpoints": true
+    }
+  ]
+}

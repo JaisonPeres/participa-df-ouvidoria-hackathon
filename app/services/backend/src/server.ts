@@ -3,7 +3,7 @@ import Fastify from 'fastify';
 import cors from '@fastify/cors';
 import swagger from '@fastify/swagger';
 import swaggerUi from '@fastify/swagger-ui';
-import { healthRoutes } from './routes';
+import { registerRoutes } from './routes';
 
 const PORT = parseInt(process.env.PORT || '3001', 10);
 const HOST = process.env.HOST || '0.0.0.0';
@@ -36,6 +36,7 @@ async function start() {
         tags: [
           { name: 'health', description: 'Health check endpoints' },
           { name: 'example', description: 'Example endpoints' },
+          { name: 'reports', description: 'Report management endpoints' },
         ],
       },
     });
@@ -49,8 +50,8 @@ async function start() {
       },
     });
 
-    // Register routes
-    await fastify.register(healthRoutes);
+    // Register all routes
+    await fastify.register(registerRoutes);
 
     // Start server
     await fastify.listen({ port: PORT, host: HOST });
@@ -59,6 +60,7 @@ async function start() {
 🚀 Server is running!
 📝 API Documentation: http://localhost:${PORT}/docs
 🏥 Health check: http://localhost:${PORT}/health
+📊 Reports API: http://localhost:${PORT}/api/reports
     `);
   } catch (err) {
     fastify.log.error(err);

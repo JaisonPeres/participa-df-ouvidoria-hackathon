@@ -1,0 +1,1 @@
+ALTER TABLE "reports" ADD COLUMN "aditional_info" jsonb DEFAULT '[]'::jsonb;

@@ -1,4 +1,5 @@
 import { FastifyInstance } from 'fastify';
+import { reportRoutes } from './report.routes';
 
 export async function healthRoutes(fastify: FastifyInstance) {
   // Health check route
@@ -53,3 +54,10 @@ export async function healthRoutes(fastify: FastifyInstance) {
     }
   );
 }
+
+// Register all routes
+export async function registerRoutes(fastify: FastifyInstance) {
+  await healthRoutes(fastify);
+  await fastify.register(reportRoutes, { prefix: '/api' });
+}
+
