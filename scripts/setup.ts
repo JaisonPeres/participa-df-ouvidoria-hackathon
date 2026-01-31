@@ -46,6 +46,13 @@ function checkCommand(command: string): boolean {
 }
 
 function copyEnvFile(src: string, dest: string): boolean {
+  // Check if source .env.example exists
+  if (!fs.existsSync(src)) {
+    log(`⚠️  ${path.basename(path.dirname(src))} .env.example not found, skipping`, 'yellow');
+    return false;
+  }
+  
+  // Check if destination .env already exists
   if (!fs.existsSync(dest)) {
     fs.copyFileSync(src, dest);
     log(`✓ Created ${path.basename(path.dirname(dest))} .env file`, 'green');
