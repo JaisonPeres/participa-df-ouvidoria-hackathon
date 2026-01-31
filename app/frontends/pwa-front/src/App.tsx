@@ -79,7 +79,7 @@ export function App() {
               }`}
             >
               {message.sender === 'bot' && (
-                <div className="h-8 w-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-xs font-bold flex-shrink-0">
+                <div className="h-8 w-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-xs font-bold shrink-0">
                   IZ
                 </div>
               )}
