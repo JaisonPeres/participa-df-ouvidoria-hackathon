@@ -1,0 +1,56 @@
+{
+  "folders": [
+    {
+      "name": "🏠 Root",
+      "path": "."
+    },
+    {
+      "name": "🖥️ Backend",
+      "path": "./app/services/backend"
+    },
+    {
+      "name": "📱 Frontend PWA",
+      "path": "./app/frontends/pwa-front"
+    },
+    {
+      "name": "📦 Packages",
+      "path": "./packages"
+    }
+  ],
+  "settings": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit"
+    },
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "typescript.enablePromptUseWorkspaceTsdk": true,
+    "files.associations": {
+      "*.css": "css",
+      "*.ts": "typescript",
+      "*.tsx": "typescriptreact"
+    },
+    "search.exclude": {
+      "**/node_modules": true,
+      "**/dist": true,
+      "**/build": true,
+      "**/.turbo": true,
+      "**/coverage": true
+    },
+    "files.watcherExclude": {
+      "**/node_modules/**": true,
+      "**/dist/**": true,
+      "**/build/**": true,
+      "**/.turbo/**": true
+    }
+  },
+  "extensions": {
+    "recommendations": [
+      "dbaeumer.vscode-eslint",
+      "esbenp.prettier-vscode",
+      "bradlc.vscode-tailwindcss",
+      "ms-azuretools.vscode-docker",
+      "rangav.vscode-thunder-client"
+    ]
+  }
+}
